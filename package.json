@@ -1,0 +1,19 @@
+{
+  "name": "conlang-word-generator",
+  "version": "1.0.0",
+  "description": "Word generator for conlangs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/logiclogue/conlang-word-generator.git"
+  },
+  "author": "Jordan Lord",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/logiclogue/conlang-word-generator/issues"
+  },
+  "homepage": "https://github.com/logiclogue/conlang-word-generator#readme"
+}

@@ -1,1 +1,1 @@
-# conlang-word-generator
+# Conlang Word Generator
