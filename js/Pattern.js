@@ -1,7 +1,11 @@
+/*
+ * Pattern class which is used to generate a word
+ * from a given pattern.
+ */
 var Pattern = function (stringPattern) {
     this.stringPattern = stringPattern || '';
     this.sounds = {
-        'C': 'qwrtypdfghjklzxvbmnß',
+        'C': '几qwrtyop',
         'V': 'aeiou'
     };
 };
