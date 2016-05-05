@@ -1,13 +1,30 @@
+/*
+ * Word class used to generate words from the
+ * letters specified.
+ */
 var Word = function () {
     this.name = 'Words are good';
 };
 
+(function (static_, proto_) {
 
-module.exports = (function (class_, public_) {
-    public_.getWords = function () {
+    /*
+     *
+     */
+    proto_.getWords = function () {
         return this.name + ' and this function!';
     };
 
+    /*
+     *
+     */
+    proto_.getWord = function () {
 
-    return class_;
+    };
+    
 }(Word, Word.prototype));
+
+/*
+ * Export Word class.
+ */
+module.exports = Word;

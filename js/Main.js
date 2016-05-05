@@ -1,9 +1,10 @@
 var Word = require('./Word');
+var Pattern = require('./Pattern');
 
 
 window.onload = function () {
     var word = new Word();
+    var pattern = new Pattern('CVC');
 
-    console.log(word.name);
-    console.log(word.getWords());
+    pattern.generateWord();
 };
