@@ -23,7 +23,14 @@ var Word = function (options) {
      * Generates it randomly.
      */
     proto_.generateRandom = function () {
-        this._randomChoose(this.patterns)[0];
+        var soundIndexes = this._randomChoose(this.patterns)[0].split('');
+        var word = '';
+
+        soundIndexes.forEach(function (soundIndex) {
+            word += this._randomChoose(this.sounds[soundIndex])[0];
+        }.bind(this));
+
+        return word;
     };
 
     /*
@@ -39,13 +46,14 @@ var Word = function (options) {
      * Private method which randomly selects a value
      * from the array based on odds calculated.
      */
-    proto_._randomChoose = function (data) {
+    proto_._randomChoose = function (data, randomVal) {
+        var randomVal = randomVal || Math.random();
         var chosenValue;
 
         for (var i = 0, max = data.length; i < max; i += 1) {
             chosenValue = data[i];
 
-            if (chosenValue[2] > Math.random()) {
+            if (chosenValue[2] > randomVal) {
                 break;
             }
         }
