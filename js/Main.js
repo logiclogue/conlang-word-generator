@@ -1,4 +1,3 @@
-var Word = require('./Word');
 var Pattern = require('./Pattern');
 
 
