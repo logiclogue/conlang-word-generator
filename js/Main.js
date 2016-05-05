@@ -1,3 +1,9 @@
+var Word = require('./Word');
+
+
 window.onload = function () {
-    console.log('here');
+    var word = new Word();
+
+    console.log(word.name);
+    console.log(word.getWords());
 };
