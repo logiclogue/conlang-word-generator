@@ -5,7 +5,7 @@
 var Pattern = function (stringPattern) {
     this.stringPattern = stringPattern || '';
     this.sounds = {
-        'C': '几qwrtyop',
+        'C': '几qwrtyp',
         'V': 'aeiou'
     };
 };
