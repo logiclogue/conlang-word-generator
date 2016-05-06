@@ -41,7 +41,8 @@ var Main = function () {
     });
     this.elements = new Elements();
 
-    this.elements.get('code-output').innerHTML = this.generateSentence(10);
+    this.outputClick();
+    this.elements.get('button-output').addEventListener('click', this.outputClick.bind(this));
 };
 
 (function (static_, proto_) {
@@ -60,6 +61,14 @@ var Main = function () {
 
         return sentence;
     };
+
+    /*
+     * Method which is called when even is added onto
+     * the output button.
+     */
+     proto_.outputClick = function () {
+         this.elements.get('code-output').innerHTML = this.generateSentence(10);
+     };
 
 }(Main, Main.prototype));
 
