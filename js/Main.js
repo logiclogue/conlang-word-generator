@@ -1,5 +1,6 @@
 var Word = require('./Word');
 var Elements = require('./Elements');
+var Interpreter = require('./Interpreter');
 
 
 /*
@@ -40,6 +41,7 @@ var Main = function () {
         }
     });
     this.elements = new Elements();
+    this.interpreter = new Interpreter('code-input');
 
     this.outputClick();
     this.elements.get('button-output').addEventListener('click', this.outputClick.bind(this));
@@ -67,6 +69,8 @@ var Main = function () {
      * the output button.
      */
      proto_.outputClick = function () {
+         console.log(this.interpreter.getContent());
+
          this.elements.get('code-output').innerHTML = this.generateSentence(10);
      };
 
