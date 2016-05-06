@@ -2,11 +2,18 @@ $break-small: 768px;
 $break-medium: 992px;
 $break-large: 1200px;
 
-textarea {
+code {
     width: 30rem;
     height: 10rem;
 
+    display: block;
+    overflow: auto;
+
     @media screen and (max-width: $break-small) {
         width: 100%;
+    }
+
+    span {
+        color: blue;
     }
 }
