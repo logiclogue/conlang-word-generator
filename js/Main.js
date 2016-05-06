@@ -1,4 +1,5 @@
 var Word = require('./Word');
+var Elements = require('./Elements');
 
 
 /*
@@ -38,9 +39,9 @@ var Main = function () {
             ]
         }
     });
+    this.elements = new Elements();
 
-    console.log(this.word.generateRandom());
-    console.log(this.generateSentence(10));
+    this.elements.get('code-output').innerHTML = this.generateSentence(10);
 };
 
 (function (static_, proto_) {
