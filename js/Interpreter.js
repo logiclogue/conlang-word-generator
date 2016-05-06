@@ -18,7 +18,13 @@ var Interpreter = function (elementId) {
      * element.
      */
     proto_.getContent = function () {
-        return this.element.innerHTML;
+        console.log(this.split());
+
+        return this.element.value;
+    };
+
+    proto_.split = function () {
+        return this.element.value.split(/\n/g);
     };
 
 }(Interpreter, Interpreter.prototype));

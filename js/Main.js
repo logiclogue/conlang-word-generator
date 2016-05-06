@@ -41,7 +41,7 @@ var Main = function () {
         }
     });
     this.elements = new Elements();
-    this.interpreter = new Interpreter('code-input');
+    this.interpreter = new Interpreter('textarea-input');
 
     this.outputClick();
     this.elements.get('button-output').addEventListener('click', this.outputClick.bind(this));
@@ -71,7 +71,7 @@ var Main = function () {
      proto_.outputClick = function () {
          console.log(this.interpreter.getContent());
 
-         this.elements.get('code-output').innerHTML = this.generateSentence(10);
+         this.elements.get('textarea-output').innerHTML = this.generateSentence(10);
      };
 
 }(Main, Main.prototype));
