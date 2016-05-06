@@ -1,0 +1,12 @@
+$break-small: 768px;
+$break-medium: 992px;
+$break-large: 1200px;
+
+textarea {
+    width: 30rem;
+    height: 10rem;
+
+    @media screen and (max-width: $break-small) {
+        width: 100%;
+    }
+}

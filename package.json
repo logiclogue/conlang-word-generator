@@ -8,7 +8,7 @@
     "watch": "npm run watch-css & npm run watch-js",
     "watch-js": "watchify js/Main.js -o build/all.js -v",
     "build-js": "browserify js/Main.js > build/all.js",
-    "watch-css": "node-sass -w styles/main.sass build/all.css",
+    "watch-css": "node-sass -w styles/main.scss build/all.css",
     "build-css": "node-sass styles/main.scss build/all.css"
   },
   "repository": {
