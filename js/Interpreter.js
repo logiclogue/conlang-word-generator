@@ -18,23 +18,31 @@ var Interpreter = function (elementId) {
      * element.
      */
     proto_.getContent = function () {
-        console.log(this.split());
-        // Split lines
-        // Remove spaces
-        // Separate sections
+        var inputText = this.element.value;
+        var output;
+        var lines;
+
+        // Split instructions
+        lines = this._split(inputText);
         // Separate probabilities
+        //lines = this._removeSpaces(lines);
+        // Separate sections
         // Format
 
-        return this.element.value;
+        output = lines;
+
+        console.log(output);
+
+        return output;
     };
 
-    proto_.split = function () {
-        return this.element.value.split(/\n/g);
-    };
 
-
-    proto_.removeSpaces = function (array) {
-
+    /*
+     * Splits the input text into processable
+     * instructions.
+     */
+    proto_._split = function (inputText) {
+        return inputText.match(/[^\s]+([^\S\n]+[0-9]+)?/g) || [];
     };
 
 }(Interpreter, Interpreter.prototype));

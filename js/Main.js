@@ -70,8 +70,7 @@ var Main = function () {
      * the output button.
      */
      proto_.outputClick = function () {
-         console.log(this.interpreter.getContent());
-
+         this.interpreter.getContent();
          this.elements.get('textarea-output').innerHTML = this.generateSentence(10);
      };
 
