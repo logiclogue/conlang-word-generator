@@ -19,12 +19,22 @@ var Interpreter = function (elementId) {
      */
     proto_.getContent = function () {
         console.log(this.split());
+        // Split lines
+        // Remove spaces
+        // Separate sections
+        // Separate probabilities
+        // Format
 
         return this.element.value;
     };
 
     proto_.split = function () {
         return this.element.value.split(/\n/g);
+    };
+
+
+    proto_.removeSpaces = function (array) {
+
     };
 
 }(Interpreter, Interpreter.prototype));
