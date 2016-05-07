@@ -20,16 +20,14 @@ var Interpreter = function (elementId) {
     proto_.getContent = function () {
         var inputText = this.element.value;
         var output;
-        var lines;
 
         // Split instructions
-        lines = this._split(inputText);
+        output = this._split(inputText);
         // Separate probabilities
+        output = this._separate(output);
         //lines = this._removeSpaces(lines);
         // Separate sections
         // Format
-
-        output = lines;
 
         console.log(output);
 
@@ -44,6 +42,17 @@ var Interpreter = function (elementId) {
     proto_._split = function (inputText) {
         return inputText.match(/[^\s]+([^\S\n]+[0-9]+)?/g) || [];
     };
+
+    /*
+     * Separates probabilities and letters.
+     */
+     proto_._separate = function (inputText) {
+         for (var i = 0, max = inputText.length; i < max; i += 1) {
+             inputText[i] = inputText[i].split(/\s+/g);
+         }
+
+         return inputText;
+     };
 
 }(Interpreter, Interpreter.prototype));
 
