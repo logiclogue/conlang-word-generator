@@ -23,10 +23,10 @@ var Interpreter = function (elementId) {
 
         // Split instructions
         output = this._split(inputText);
-        // Separate probabilities
-        output = this._separate(output);
-        //lines = this._removeSpaces(lines);
+        // Separate ratios
+        output = this._separateRatios(output);
         // Separate sections
+        output = this._separateSections(output);
         // Format
 
         console.log(output);
@@ -44,15 +44,51 @@ var Interpreter = function (elementId) {
     };
 
     /*
-     * Separates probabilities and letters.
+     * Separates ratios and letters.
      */
-     proto_._separate = function (inputText) {
-         for (var i = 0, max = inputText.length; i < max; i += 1) {
-             inputText[i] = inputText[i].split(/\s+/g);
-         }
+    proto_._separateRatios = function (inputText) {
+        for (var i = 0, max = inputText.length; i < max; i += 1) {
+            inputText[i] = inputText[i].split(/\s+/g);
 
-         return inputText;
-     };
+            if (typeof inputText[i][1] !== 'undefined') {
+                inputText[i][1] = parseInt(inputText[i][1]);
+            }
+        }
+
+        return inputText;
+    };
+
+    /*
+    * Separates sections.
+    */
+    proto_._separateSections = function (inputText) {
+        var breakIndexes = [];
+        var output = {
+            patterns: [],
+            sounds: {}
+        };
+
+        inputText.forEach(function (value, index) {
+            if (value[0].match(/\(.*\):/g)) {
+                breakIndexes.push(index);
+            }
+            else if (breakIndexes.length === 0) {
+                output.patterns.push(value);
+            }
+        });
+
+        breakIndexes.forEach(function (index, indexArray) {
+            var textIndex = inputText[index][0].substring(1, inputText[index][0].length - 2);
+
+            output.sounds[textIndex] = [];
+
+            for (var i = index + 1, max = breakIndexes[indexArray + 1] || inputText.length; i < max; i += 1) {
+                output.sounds[textIndex].push(inputText[i]);
+            }
+        });
+
+        return output;
+    };
 
 }(Interpreter, Interpreter.prototype));
 
