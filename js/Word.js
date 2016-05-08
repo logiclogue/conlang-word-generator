@@ -5,24 +5,38 @@
  *     sounds
  */
 var Word = function (options) {
-    this.patterns = options.patterns;
-    this.sounds = options.sounds;
-
-
-    this._calculateOdds(this.patterns);
-
-    for (var index in this.sounds) {
-        this._calculateOdds(this.sounds[index]);
-    }
+    this.select(options);
 };
 
 (function (static_, proto_) {
+
+    /*
+     * Select options.
+     */
+    proto_.select = function (options) {
+        if (typeof options === 'undefined') {
+            return false;
+        }
+
+        this.patterns = options.patterns;
+        this.sounds = options.sounds;
+
+        this._calculateOdds(this.patterns);
+
+        for (var index in this.sounds) {
+            this._calculateOdds(this.sounds[index]);
+        }
+    };
 
     /*
      * The go to method for generating a word.
      * Generates it randomly.
      */
     proto_.generateRandom = function () {
+        if (typeof this.patterns === 'undefined' || typeof this.sounds === 'undefined' || this.patterns.length === 0 || this.sounds.length === 0) {
+            return false;
+        }
+
         var soundIndexes = this._randomChoose(this.patterns)[0].split('');
         var word = '';
 

@@ -27,9 +27,6 @@ var Interpreter = function (elementId) {
         output = this._separateRatios(output);
         // Separate sections
         output = this._separateSections(output);
-        // Format
-
-        console.log(output);
 
         return output;
     };

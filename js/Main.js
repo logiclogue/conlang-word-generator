@@ -43,9 +43,37 @@ var Main = function () {
     });
     this.elements = new Elements();
     this.interpreter = new Interpreter('textarea-input');
+    this.input = `CVC 10
+CV 10
+CVV 10
+VCV 10
+VC 10
+CVCCVC 10
+CVCVC 10
+C 10
+
+(C):
+p 10
+t 10
+k 10
+s 10
+m 10
+n 10
+l 10
+w 10
+j 10
+
+(V):
+a 21
+e 23
+i 34
+o 12
+u 23
+`;
 
     this.outputClick();
     this.elements.get('button-output').addEventListener('click', this.outputClick.bind(this));
+    this.elements.get('textarea-input').value = this.input;
 };
 
 (function (static_, proto_) {
@@ -57,7 +85,7 @@ var Main = function () {
         var sentence = '';
 
         while (numberOfWords > 0) {
-            sentence += this.word.generateRandom() + ' ';
+            sentence += this.word.generateRandom() + '\n';
 
             numberOfWords -= 1;
         }
@@ -70,7 +98,8 @@ var Main = function () {
      * the output button.
      */
      proto_.outputClick = function () {
-         this.interpreter.getContent();
+         this.word.select(this.interpreter.getContent());
+
          this.elements.get('textarea-output').innerHTML = this.generateSentence(10);
      };
 
