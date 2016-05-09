@@ -73,9 +73,9 @@ ist 10
 ewn 10
 `;
 
-    this.outputClick();
     this.elements.get('button-output').addEventListener('click', this.outputClick.bind(this));
     this.elements.get('textarea-input').value = this.input;
+    this.outputClick();
 };
 
 (function (static_, proto_) {
