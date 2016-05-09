@@ -43,14 +43,11 @@ var Main = function () {
     });
     this.elements = new Elements();
     this.interpreter = new Interpreter('textarea-input');
-    this.input = `CVC 10
+    this.input = `CVCE 10
 CV 10
-CVV 10
 VCV 10
-VC 10
-CVCCVC 10
-CVCVC 10
-C 10
+VCE 10
+CVCVCE 10
 
 (C):
 p 10
@@ -69,6 +66,11 @@ e 23
 i 34
 o 12
 u 23
+
+(E):
+upom 10
+ist 10
+ewn 10
 `;
 
     this.outputClick();
@@ -97,11 +99,13 @@ u 23
      * Method which is called when even is added onto
      * the output button.
      */
-     proto_.outputClick = function () {
-         this.word.select(this.interpreter.getContent());
+    proto_.outputClick = function () {
+        var numberOfWords = this.elements.get('input-word-number').value;
 
-         this.elements.get('textarea-output').innerHTML = this.generateSentence(10);
-     };
+        this.word.select(this.interpreter.getContent());
+
+        this.elements.get('textarea-output').innerHTML = this.generateSentence(numberOfWords);
+    };
 
 }(Main, Main.prototype));
 
