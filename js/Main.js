@@ -18,7 +18,7 @@ var Main = function () {
     this.elements.get('textarea-input').value = this.input;
     this.outputClick();
 
-    console.log(SHA256('Jordan').toString());
+    console.log(parseInt(SHA256('Test').toString(), 16) / 0x100000000000000000000000000000000);
 };
 
 (function (static_, proto_) {
