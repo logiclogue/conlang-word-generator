@@ -2,6 +2,7 @@ var Word = require('./Word');
 var Elements = require('./Elements');
 var Interpreter = require('./Interpreter');
 var Examples = require('./Examples');
+var SHA256 = require('crypto-js/md5');
 
 
 /*
@@ -16,6 +17,8 @@ var Main = function () {
     this.elements.get('button-output').addEventListener('click', this.outputClick.bind(this));
     this.elements.get('textarea-input').value = this.input;
     this.outputClick();
+
+    console.log(SHA256('Jordan').toString());
 };
 
 (function (static_, proto_) {
