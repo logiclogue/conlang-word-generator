@@ -2,7 +2,7 @@ var Word = require('./Word');
 var Elements = require('./Elements');
 var Interpreter = require('./Interpreter');
 var Examples = require('./Examples');
-var SHA256 = require('crypto-js/md5');
+var Random = require('./Random');
 
 
 /*
@@ -12,13 +12,14 @@ var Main = function () {
     this.word = new Word();
     this.elements = new Elements();
     this.interpreter = new Interpreter('textarea-input');
+    this.random = new Random();
     this.input = Examples[0];
 
     this.elements.get('button-output').addEventListener('click', this.outputClick.bind(this));
     this.elements.get('textarea-input').value = this.input;
     this.outputClick();
 
-    console.log(parseInt(SHA256('Test').toString(), 16) / 0x100000000000000000000000000000000);
+    console.log(this.random.decimal('Jordan'));
 };
 
 (function (static_, proto_) {
