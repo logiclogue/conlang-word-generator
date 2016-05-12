@@ -45,11 +45,11 @@ var Word = function (options, seed) {
             return false;
         }
 
-        var soundIndexes = this._randomChoose(this.patterns)[0].split('');
+        var soundIndexes = this.random.elementWeight(undefined, this.patterns)[0].split('');
         var word = '';
 
         soundIndexes.forEach(function (soundIndex) {
-            word += this._randomChoose(this.sounds[soundIndex])[0];
+            word += this.random.elementWeight(undefined, this.sounds[soundIndex])[0];
         }.bind(this));
 
         return word;
@@ -69,8 +69,8 @@ var Word = function (options, seed) {
      * from the array based on odds calculated.
      */
     proto_._randomChoose = function (data, randomVal) {
-        var randomVal = randomVal || this.random.decimal(Math.random()); // !!!!!!!!!!!!!!1
         var chosenValue;
+        randomVal = randomVal || this.random.decimal(Math.random());
 
         for (var i = 0, max = data.length; i < max; i += 1) {
             chosenValue = data[i];

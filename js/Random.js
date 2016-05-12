@@ -46,6 +46,26 @@ var Random = function() {
         return element;
     };
 
+    /*
+     * Returns random element of given array, each
+     * element is weighted in the format:
+     * [value, weight]
+     */
+    proto_.elementWeight = function (seed, array) {
+        var randomVal = this.decimal(seed || Math.random());
+        var chosenValue;
+
+        for (var i = 0, max = array.length; i < max; i += 1) {
+            chosenValue = array[i];
+
+            if (chosenValue[2] > randomVal) {
+                break;
+            }
+        }
+
+        return chosenValue;
+    };
+
 }(Random, Random.prototype));
 
 module.exports = Random;
