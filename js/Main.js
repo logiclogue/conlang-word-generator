@@ -18,8 +18,6 @@ var Main = function () {
     this.elements.get('button-output').addEventListener('click', this.outputClick.bind(this));
     this.elements.get('textarea-input').value = this.input;
     this.outputClick();
-
-    console.log(this.random.decimal('Jordan'));
 };
 
 (function (static_, proto_) {
