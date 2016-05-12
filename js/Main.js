@@ -2,8 +2,6 @@ var Word = require('./Word');
 var Elements = require('./Elements');
 var Interpreter = require('./Interpreter');
 var Examples = require('./Examples');
-var Random = require('./Random');
-
 
 /*
  * Main class which is called upon page load.
@@ -12,7 +10,6 @@ var Main = function () {
     this.word = new Word();
     this.elements = new Elements();
     this.interpreter = new Interpreter('textarea-input');
-    this.random = new Random();
     this.input = Examples[0];
 
     this.elements.get('button-output').addEventListener('click', this.outputClick.bind(this));
@@ -42,7 +39,7 @@ var Main = function () {
      * the output button.
      */
     proto_.outputClick = function () {
-        var numberOfWords = this.elements.get('input-word-number').value;
+        var numberOfWords = this.elements.get('input-word-number').value || 1;
 
         this.word.select(this.interpreter.getContent());
 

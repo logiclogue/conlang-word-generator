@@ -1,11 +1,16 @@
+var Random = require('./Random');
+
+
 /*
  * Main class for generating a word.
  * Options are passed it which includes:
  *     patterns
  *     sounds
  */
-var Word = function (options) {
+var Word = function (options, seed) {
     this.select(options);
+    this.seed = seed;
+    this.random = new Random();
 };
 
 (function (static_, proto_) {
@@ -64,7 +69,7 @@ var Word = function (options) {
      * from the array based on odds calculated.
      */
     proto_._randomChoose = function (data, randomVal) {
-        var randomVal = randomVal || Math.random();
+        var randomVal = randomVal || this.random.decimal(Math.random()); // !!!!!!!!!!!!!!1
         var chosenValue;
 
         for (var i = 0, max = data.length; i < max; i += 1) {
