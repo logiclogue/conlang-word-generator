@@ -33,7 +33,10 @@ var Word = function (options) {
      * Generates it randomly.
      */
     proto_.generateRandom = function () {
-        if (typeof this.patterns === 'undefined' || typeof this.sounds === 'undefined' || this.patterns.length === 0 || this.sounds.length === 0) {
+        if (typeof this.patterns === 'undefined' ||
+            typeof this.sounds === 'undefined' ||
+            this.patterns.length === 0 ||
+            this.sounds.length === 0) {
             return false;
         }
 
