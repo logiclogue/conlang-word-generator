@@ -32,19 +32,12 @@ var Word = function (options, seed) {
         for (var index in this.sounds) {
             this._calculateOdds(this.sounds[index]);
         }
-    };
-
-    proto_.getSeed = function () {
-        this._seedCount += 1;
-        
-        return this.seed + '' + this._seedCount;
-    };
+    }; 
 
     /*
      * The go to method for generating a word.
-     * Generates it randomly.
      */
-    proto_.generateRandom = function () {
+    proto_.generate = function () {
         if (typeof this.patterns === 'undefined' ||
             typeof this.sounds === 'undefined' ||
             this.patterns.length === 0 ||
@@ -52,24 +45,29 @@ var Word = function (options, seed) {
             return false;
         }
 
-        var soundIndexes = this.random.elementWeight(this.getSeed(), this.patterns)[0].split('');
+        var soundIndexes = this.random.elementWeight(this._getSeed(), this.patterns)[0].split('');
         var word = '';
 
         soundIndexes.forEach(function (soundIndex) {
-            word += this.random.elementWeight(this.getSeed(), this.sounds[soundIndex])[0];
+            word += this.random.elementWeight(this._getSeed(), this.sounds[soundIndex])[0];
         }.bind(this));
 
         return word;
     };
 
+    
     /*
-     * Generates the same word from a given seed
-     * string.
+     * Private method for retrieving the seed. While
+     * doing do, it increments the seedCount, causing
+     * it to be a different seed everytime called.
      */
-    proto_.generateSeed = function (seed) {
-
+    proto_._getSeed = function () {
+        this._seedCount += 1;
+        
+        if (typeof this.seed !== 'undefined') {
+            return this.seed + '' + this._seedCount;
+        }
     };
-
 
     /*
      * Private method which randomly selects a value

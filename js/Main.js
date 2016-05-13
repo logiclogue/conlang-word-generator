@@ -7,7 +7,7 @@ var Examples = require('./Examples');
  * Main class which is called upon page load.
  */
 var Main = function () {
-    this.word = new Word(undefined, 'Jordan');
+    this.word = new Word();
     this.elements = new Elements();
     this.interpreter = new Interpreter('textarea-input');
     this.input = Examples[0];
@@ -26,7 +26,7 @@ var Main = function () {
         var sentence = '';
 
         while (numberOfWords > 0) {
-            sentence += this.word.generateRandom() + '\n';
+            sentence += this.word.generate() + '\n';
 
             numberOfWords -= 1;
         }
