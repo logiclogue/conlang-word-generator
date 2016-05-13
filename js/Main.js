@@ -7,7 +7,7 @@ var Examples = require('./Examples');
  * Main class which is called upon page load.
  */
 var Main = function () {
-    this.word = new Word();
+    this.word = new Word(undefined, 'Jordan');
     this.elements = new Elements();
     this.interpreter = new Interpreter('textarea-input');
     this.input = Examples[0];

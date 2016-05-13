@@ -8,6 +8,7 @@ var Random = require('./Random');
  *     sounds
  */
 var Word = function (options, seed) {
+    this._seedCount = 0;
     this.select(options);
     this.seed = seed;
     this.random = new Random();
@@ -33,6 +34,12 @@ var Word = function (options, seed) {
         }
     };
 
+    proto_.getSeed = function () {
+        this._seedCount += 1;
+        
+        return this.seed + '' + this._seedCount;
+    };
+
     /*
      * The go to method for generating a word.
      * Generates it randomly.
@@ -45,11 +52,11 @@ var Word = function (options, seed) {
             return false;
         }
 
-        var soundIndexes = this.random.elementWeight(undefined, this.patterns)[0].split('');
+        var soundIndexes = this.random.elementWeight(this.getSeed(), this.patterns)[0].split('');
         var word = '';
 
         soundIndexes.forEach(function (soundIndex) {
-            word += this.random.elementWeight(undefined, this.sounds[soundIndex])[0];
+            word += this.random.elementWeight(this.getSeed(), this.sounds[soundIndex])[0];
         }.bind(this));
 
         return word;
