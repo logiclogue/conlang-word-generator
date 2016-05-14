@@ -14,6 +14,7 @@ var Main = function () {
 
     this.elements.get('button-output').addEventListener('click', this.outputClick.bind(this));
     this.elements.get('textarea-input').value = this.input;
+    this.elements.get('checkbox-is-seed').addEventListener('click', this.eventSeedCheckbox.bind(this));
     this.outputClick();
 };
 
@@ -44,6 +45,21 @@ var Main = function () {
         this.word.select(this.interpreter.getContent());
 
         this.elements.get('textarea-output').innerHTML = this.generateSentence(numberOfWords);
+    };
+
+    /*
+     * Method that switches whether the seed is used.
+     * Triggered when pressing the checkbox.
+     */
+    proto_.eventSeedCheckbox = function (e) {
+        if (this.elements.get('checkbox-is-seed').checked) {
+            console.log('checked');
+            this.elements.get('input-seed').readOnly = false;
+        }
+        else {
+            this.elements.get('input-seed').readOnly = true;
+            console.log('unchecked');
+        }
     };
 
 }(Main, Main.prototype));
