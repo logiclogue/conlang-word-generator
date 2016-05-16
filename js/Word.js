@@ -55,6 +55,14 @@ var Word = function (options, seed) {
         return word;
     };
 
+    /*
+     * Method for setting the seed.
+     */
+    proto_.setSeed = function (seed) {
+        this.seed = seed;
+        this._seedCount = 0;
+    };
+
     
     /*
      * Private method for retrieving the seed. While

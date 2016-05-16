@@ -27,6 +27,8 @@ var Main = function () {
     proto_.generateSentence = function (numberOfWords) {
         var sentence = '';
 
+        this.word.setSeed(this.seedGet.get());
+
         while (numberOfWords > 0) {
             sentence += this.word.generate() + '\n';
 
