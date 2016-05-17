@@ -6,7 +6,7 @@ var MD5 = require('crypto-js/md5');
  * given seed using the MD5 hash algorithm.
  * Requires crypto-js.
  */
-var Random = function() {
+var Random = function () {
     this.maximum = 0x100000000;
 };
 
