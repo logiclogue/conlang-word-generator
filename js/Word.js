@@ -1,4 +1,4 @@
-var Random = require('./Random');
+var Random = require('./ConRandom');
 
 
 /*
