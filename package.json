@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "commander": "~2.9.0",
-    "seeded-random": "~1.0.0"
+    "seeded-random": "~1.0.0",
+    "fs": "0.0.2"
   }
 }
