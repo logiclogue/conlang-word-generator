@@ -29,8 +29,8 @@
     "watchify": "~3.7.0"
   },
   "dependencies": {
-    "commander": "~2.9.0",
-    "seeded-random": "~1.0.0",
-    "fs": "0.0.2"
+    "commander": "^2.9.0",
+    "fs": "0.0.2",
+    "seeded-random": "~1.0.0"
   }
 }
